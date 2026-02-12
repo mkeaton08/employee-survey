@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Experience Survey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p.description {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    select, textarea, input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 12px;
+      background-color: #5a2ca0;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #4a2385;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .thank-you {
+      text-align: center;
+      padding: 40px;
+    }
+
+    .thank-you h2 {
+      color: #5a2ca0;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container" id="surveyContainer">
+    <h1>Employee Experience Survey</h1>
+    <p class="description">
+      Please complete this brief survey. Your feedback is appreciated.
+    </p>
+
+    <form id="surveyForm">
+
+      <label>Overall satisfaction (1–5)</label>
+      <select required>
+        <option value="">Select</option>
+        <option>1 - Very Dissatisfied</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 - Very Satisfied</option>
+      </select>
+
+      <label>Do you feel supported by your manager?</label>
+      <select required>
+        <option value="">Select</option>
+        <option>Yes</option>
+        <option>Somewhat</option>
+        <option>No</option>
+      </select>
+
+      <label>Additional feedback</label>
+      <textarea rows="4" required></textarea>
+
+      <button type="submit">Submit Survey</button>
+
+    </form>
+  </div>
+
+  <div class="container hidden thank-you" id="thankYouContainer">
+    <h2>Thank you for your response.</h2>
+    <p>Your survey has been successfully submitted.</p>
+  </div>
+
+  <script>
+    document.getElementById("surveyForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // prevents actual submission
+
+      // Hide survey
+      document.getElementById("surveyContainer").classList.add("hidden");
+
+      // Show thank you message
+      document.getElementById("thankYouContainer").classList.remove("hidden");
+    });
+  </script>
+
+</body>
+</html>
