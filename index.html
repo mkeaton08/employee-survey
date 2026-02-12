@@ -21,6 +21,16 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      max-width: 180px;
+      height: auto;
+    }
+
     h1 {
       text-align: center;
       margin-bottom: 10px;
@@ -46,6 +56,7 @@
       border-radius: 4px;
       border: 1px solid #ccc;
       font-size: 14px;
+      box-sizing: border-box;
     }
 
     button {
@@ -76,18 +87,31 @@
     .thank-you h2 {
       color: #5a2ca0;
     }
-
   </style>
 </head>
 <body>
 
   <div class="container" id="surveyContainer">
+
     <h1>Employee Experience Survey</h1>
     <p class="description">
       Please complete this brief survey. Your feedback is appreciated.
     </p>
 
     <form id="surveyForm">
+
+      <!-- NEW FILL-IN QUESTIONS -->
+
+      <label>What department do you work in?</label>
+      <input type="text" required>
+
+      <label>How long have you been with the organization?</label>
+      <input type="text" required>
+
+      <label>What is one thing we could improve?</label>
+      <input type="text" required>
+
+      <!-- EXISTING QUESTIONS -->
 
       <label>Overall satisfaction (1–5)</label>
       <select required>
@@ -122,12 +146,8 @@
 
   <script>
     document.getElementById("surveyForm").addEventListener("submit", function(event) {
-      event.preventDefault(); // prevents actual submission
-
-      // Hide survey
+      event.preventDefault();
       document.getElementById("surveyContainer").classList.add("hidden");
-
-      // Show thank you message
       document.getElementById("thankYouContainer").classList.remove("hidden");
     });
   </script>
